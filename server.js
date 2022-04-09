@@ -13,7 +13,7 @@ var path = require('path');
 require('dotenv')
 .config();
 
-const mongouri = 'mongodb+srv://donnybow44:4donald5@cluster0.m8vvn.mongodb.net/videotest?retryWrites=true&w=majority';
+const mongouri = 'MONGODBURL;
 try {
     mongoose.connect(mongouri, {
         useUnifiedTopology: true,
