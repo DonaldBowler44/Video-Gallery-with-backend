@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+	<h3 class="heading"> video gallery </h3>
+
+	<div class="container">
+
+		<div class="main-video">
+			<div class="video">
+				<video src='/mongo-video' type="video/mp4" controls muted autoplay></video>
+				<h3>video title goes here</h3>
+			</div>
+		</div>
+
+		<div class="video-list">
+			<div class="vid">
+				<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+				<h3> 01. video title goes here</h3>
+			</div>
+			<div class="vid">
+					<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+					<h3> 02. video title goes here</h3>
+				</div>
+				<div class="vid">
+						<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+						<h3> 03. video title goes here</h3>
+					</div>
+					<div class="vid">
+							<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+							<h3> 04. video title goes here</h3>
+						</div>
+						<div class="vid">
+								<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+								<h3> 05. video title goes here</h3>
+							</div>
+							<div class="vid">
+									<video src="http://media.w3.org/2010/05/video/movie_300.mp4" muted ></video>
+									<h3> 06. video title goes here</h3>
+								</div>
+
+		</div>
+
+		<div class="container2">
+			<label for="newComment" name="newComment">Add your comment below-</label>
+			<textarea id="newComment"></textarea>
+			<button id="addComments">Add Comment</button>
+			<div id="allComments"></div>
+	</div>
+	<div id="app"></div>
+	<script src="gallery.js">
+	</script>
+	<script>
+	
+let listVideo = document.querySelector('.video-list .vid');
+let mainVideo = document.querySelector('.main-video .video');
+let title = document.querySelector('.main-video .title');
+
+listVideo.forEach(video =>{
+	video.onclick = () =>{
+		listVideo.forEach(vid => vid.classList.remove('vid'));
+		video.classList.add('vid');
+		if(video.classList.contains('vid')){
+			let src = video.children[0].getAttribute('src');
+			mainVideo.src = src;
+			let text = video.children[1].innerHTML;
+			title.innerHTML = text;
+		};
+	};
+});
+
+	</script>
+</body>
+
+</html>
